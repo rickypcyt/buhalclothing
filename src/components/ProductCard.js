@@ -1,15 +1,22 @@
+"use client";
+
 import { useCartStore } from '@/store/cartStore';
 
 export default function ProductCard({ product }) {
   const addToCart = useCartStore((state) => state.addToCart);
 
   return (
-    <div className="bg-gray-800 p-5 rounded-lg shadow-md text-center">
-      <img src={product.image} alt={product.name} className="h-40 w-full object-cover rounded-md" />
-      <h2 className="text-lg font-bold mt-2">{product.name}</h2>
-      <p className="text-gray-400">${product.price}</p>
+    <div className="bg-black border border-gray-700 p-6 rounded-xl shadow-lg text-center transform transition duration-300 hover:scale-105">
+      <img 
+        src={product.image} 
+        alt={product.name} 
+        className="h-52 w-full object-cover rounded-lg shadow-md" 
+      />
+      <h2 className="text-xl font-semibold mt-3 text-white">{product.name}</h2>
+      <p className="text-gray-400 text-sm mt-1">{product.description}</p>
+      <p className="text-gray-300 text-lg font-bold mt-2">${product.price}</p>
       <button
-        className="mt-3 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+        className="mt-4 bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-600 hover:to-gray-800 text-white py-2 px-5 rounded-lg font-medium tracking-wide transition"
         onClick={() => addToCart(product)}
       >
         Agregar al carrito
